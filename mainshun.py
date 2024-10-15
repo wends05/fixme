@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 import mediapipe as mp
-
+import socket
+import json
 # Mediapipe hands module
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
@@ -22,6 +23,11 @@ triangle_position = np.array([[400, 200], [350, 300], [450, 300]], np.int32)
 dragging = False
 current_shape = None
 
+# UDP Server
+server_ip = "127.0.0.1"
+server_port = 4523
+serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
 def is_point_in_shape(point, shape):
     if shape == "circle":
         return cv2.norm((point[0] - circle_position[0], point[1] - circle_position[1])) <= 50
@@ -31,7 +37,7 @@ def is_point_in_shape(point, shape):
         return cv2.pointPolygonTest(triangle_position, point, False) >= 0
     return False
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 # Set the desired width and height
 desired_width = 640
@@ -65,15 +71,16 @@ while cap.isOpened():
             middle_x = int(middle_finger_tip.x * desired_width)
             middle_y = int(middle_finger_tip.y * desired_height)
 
+
             # Draw circles at the fingertip positions
-            cv2.circle(frame, (finger_x, finger_y), 10, (0, 255, 0), -1)
-            cv2.circle(frame, (middle_x, middle_y), 10, (0, 0, 255), -1)
+            cv2.circle(frame, (finger_x, finger_y), 0, (0, 255, 0), -1)
+            cv2.circle(frame, (middle_x, middle_y), 0, (0, 0, 255), -1)
 
             # Calculate the distance between the index and middle finger tips
             distance = cv2.norm((finger_x - middle_x, finger_y - middle_y))
 
             # Check if the hand is closed 
-            hand_closed = distance < 30  
+            hand_closed = distance < 50  
 
             # Check if the fingertip is over any shape
             if hand_closed:
@@ -102,6 +109,18 @@ while cap.isOpened():
         if not results.multi_hand_landmarks:
             dragging = False
             current_shape = None
+        
+        if hand_closed:
+            data = {
+                "getting": True,
+                "position": f"{round(index_finger_tip.x, 5)}, {round(index_finger_tip.y, 5)}"
+            }
+        else:
+            data = {
+                "getting": False,
+                "position": f"{round(index_finger_tip.x, 5)}, {round(index_finger_tip.y)}"
+            }
+        serverSocket.sendto(json.dumps(data).encode('ascii'), (server_ip, server_port))
 
     cv2.imshow("Hand Tracker", temp_frame)
 

@@ -22,6 +22,7 @@ options = GestureRecognizerOptions(
 recognizer =  GestureRecognizer.create_from_options(options)
 
 cam = cv.VideoCapture(1)
+
 frame_rate = cam.get(cv.CAP_PROP_FPS)
 
 print("ajshkajskd")
@@ -36,7 +37,7 @@ while cam.isOpened():
 
   # frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
   cv.imshow("Show Video", frame)
-
+  frame = cv.flip(frame, 1)
   # frame_rgb = cv.cvtColor(frame, cv.COLOR_RGB2GRAY)
 
   mp_image = mp.Image(
