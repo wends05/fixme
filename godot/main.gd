@@ -6,6 +6,7 @@ class_name ServerNode
 extends Node
 
 var server := UDPServer.new()
+@onready var sampleTextureRect = $TextureRect
 
 func _ready():
 	server.listen(4523)
@@ -17,3 +18,10 @@ func _process(delta):
 		var packet = peer.get_packet()
 		print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
 		print("Received data: %s" % [packet.get_string_from_utf8()])
+
+		var data : String = JSON.parse_string(packet.get_string_from_utf8()).position
+		var x = data.split(",")[0].to_float() * get_window().size.x
+		var y = data.split(",")[1].to_float() * get_window().size.y
+
+		print(x, " ", y)
+		sampleTextureRect.position = Vector2(x, y - 80)
