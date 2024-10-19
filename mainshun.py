@@ -16,7 +16,7 @@ server_ip = "127.0.0.1"
 server_port = 4523
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 # Set the desired width and height
 desired_width = 640
@@ -54,7 +54,7 @@ while cap.isOpened():
             distance = cv2.norm((thumb_x - middle_x, thumb_y - middle_y))
 
             # Check if the hand is closed 
-            hand_closed = distance < 50  
+            hand_closed = distance < 70 
 
 
         # If no hands are detected, stop dragging
