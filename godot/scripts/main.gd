@@ -6,7 +6,7 @@ class_name ServerNode
 extends Node
 
 var server := UDPServer.new()
-@onready var sampleTextureRect = $TextureRect
+@export var hand : Hand
 
 func _ready():
 	server.listen(4523)
@@ -24,8 +24,6 @@ func _process(_delta):
 		var x = data.split(",")[0].to_float() * get_window().size.x
 		var y = data.split(",")[1].to_float() * get_window().size.y
 
-
-
 		print(x, " ", y)
-		sampleTextureRect.position = Vector2(x, y - 80)
-		sampleTextureRect.flip_v = getting if getting else false
+		hand.position = Vector2(x, y - 80)
+		hand.hover() if getting else hand.not_hovering()

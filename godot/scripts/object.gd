@@ -23,23 +23,26 @@ func _process(delta):
 			else:
 				tween.tween_property(self,"global_position",initialPos,0.2).set_ease(Tween.EASE_OUT)
 
+# change later into hovered()
 func _on_area_2d_mouse_entered():
 	if not globals.is_dragging:
 		draggable = true
 		scale = Vector2(1.05, 1.05)
 
-
+# unhovered
 func _on_area_2d_mouse_exited():
 	if not globals.is_dragging:
 		draggable = false
 		scale = Vector2(1,1)
 
+# dropped
 func _on_area_2d_body_entered(body: StaticBody2D):
 	if body.is_in_group('dropable'):
 		is_inside_droppable = true
 		body.modulate = Color(Color.REBECCA_PURPLE, 1)
 		body_ref = body
 
+#
 func _on_area_2d_body_exited(body):
 	if body.is_in_group('dropable'):
 		is_inside_droppable = false
