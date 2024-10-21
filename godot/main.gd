@@ -23,10 +23,9 @@ func _process(_delta):
 		var getting = JSON.parse_string(packet.get_string_from_utf8()).getting
 		var x = data.split(",")[0].to_float() * get_window().size.x
 		var y = data.split(",")[1].to_float() * get_window().size.y
-		
-		
+
+
 
 		print(x, " ", y)
 		sampleTextureRect.position = Vector2(x, y - 80)
 		sampleTextureRect.flip_v = getting if getting else false
-	
