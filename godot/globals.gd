@@ -1,3 +1,3 @@
 extends Node
 
-var is_dragging = false 
+var is_dragging = false
