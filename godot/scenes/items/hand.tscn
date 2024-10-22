@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7x4no5rga6qf"]
+
+[ext_resource type="Texture2D" uid="uid://cyyf1ar6yecwu" path="res://icon.svg" id="1_pflfc"]
+[ext_resource type="Script" path="res://scripts/hand.gd" id="2_2jkd1"]
+
+[node name="Hand" type="TextureRect"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 192.0
+texture = ExtResource("1_pflfc")
+script = ExtResource("2_2jkd1")
