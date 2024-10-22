@@ -31,7 +31,7 @@ func _process(_delta):
 		var y = data.split(",")[1].to_float() * get_window().size.y
 
 		print(x, " ", y)
-		hand.position = Vector2(x, y - 80)
+		hand.move(x, y)
 		hand.hover() if getting else hand.not_hovering()
 
 func readyItems():
