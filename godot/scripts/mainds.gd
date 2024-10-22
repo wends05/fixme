@@ -75,12 +75,9 @@ func readyShelf():
 	var slots : Array = []
 	for txt in items:
 		var slot : ShelfSlot = preload("res://scenes/shelf_slot.tscn").instantiate()
-		if slot.get_node("Texture"):
-			var slot_texture = slot.get_node("Texture")
-			slot_texture.texture = txt
-
-			slot.scale = Vector2(0.1, 0.1)
-		slot.visible = false
+		slot.slot_texture = txt
+		slot.scale = Vector2(0.1, 0.1)
+		slot.visible = true
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])
