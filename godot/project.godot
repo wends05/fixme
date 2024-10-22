@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="godot"
-run/main_scene="res://scenes/test.tscn"
+run/main_scene="res://scenes/game (ds).tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -26,6 +26,12 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="godot"
+
+[layer_names]
+
+2d_physics/layer_1="Hand"
+2d_physics/layer_2="Inventory"
+2d_physics/layer_3="Shelf"
 
 [rendering]
 
