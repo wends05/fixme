@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3vlnndpegwnw"]
 
-[ext_resource type="Script" path="res://scripts/mainds.gd" id="1_gqjrt"]
-[ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="2_ty5qd"]
+[ext_resource type="Script" path="res://scripts/mainds.gd" id="1_j2fre"]
+[ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="2_ejhtd"]
 
 [node name="Test Scene" type="Node2D"]
-script = ExtResource("1_gqjrt")
+script = ExtResource("1_j2fre")
 
-[node name="Hand" parent="." instance=ExtResource("2_ty5qd")]
+[node name="Hand" parent="." instance=ExtResource("2_ejhtd")]
