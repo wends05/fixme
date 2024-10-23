@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqiv31xlh6p47"]
 
 [ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="1_mdrby"]
-[ext_resource type="PackedScene" uid="uid://bu8w6ri5lucg3" path="res://scenes/ui.tscn" id="2_lulms"]
+[ext_resource type="PackedScene" uid="uid://bu8w6ri5lucg3" path="res://scenes/items/ui.tscn" id="2_lulms"]
 
 [node name="Game - Fruits and Vegetables" type="Node2D"]
 

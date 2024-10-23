@@ -57,9 +57,9 @@ func _process(delta: float) -> void:
 				grabbed_texture.texture = null
 			#elif slot.texture.texture == txt.texture:
 			else:
-				print("omg it match ")
+				print("omg it match")
 				grabbed_texture.texture = null
-				slot.texture.visible = false
+				slot.texture.visible = true
 			print(slot.texture.texture, " ", grabbed_texture.texture)
 			print("Trying to drop in the slot")
 		else:

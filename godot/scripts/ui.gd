@@ -1,7 +1,9 @@
 extends Control
 
-@onready var guideBG = $GuideBG
 
+class_name UI
+@onready var guideBG = $GuideBG
+@onready var GuideSheet = $GuideBG/GuideSheet
 func _ready() -> void:
 	$GuideBG.visible = false
 

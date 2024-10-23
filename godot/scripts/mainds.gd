@@ -17,7 +17,7 @@ var items: Array[Resource] = [biscoff, c2, cheetos, doritos, mayo, milk, oreo, s
 
 var server := UDPServer.new()
 @export var hand : Hand
-
+@export var UI : UI
 #var final_items = {
 	#0: null
 #}
@@ -25,7 +25,7 @@ var server := UDPServer.new()
 func _ready():
 	server.listen(4523)
 	readyItems()
-	readyShelf()
+	readyShelfandGuide()
 
 
 func _process(_delta):
@@ -58,7 +58,7 @@ func readyItems():
 	# change to a proper class later
 	var textures : Array = []
 	for txt in items:
-		var item : Item = preload("res://scenes/item.tscn").instantiate()
+		var item : Item = preload("res://scenes/items/item.tscn").instantiate()
 		if item.get_node("Texture"):
 			var item_texture = item.get_node("Texture")
 			item_texture.texture = txt
@@ -68,23 +68,21 @@ func readyItems():
 	for i in range(10):
 		$Items/Box_Items.get_children()[i].add_child(textures[i])
 
-func readyShelf():
+func readyShelfandGuide():
 	items.shuffle()
 
 	var slots : Array = []
 	for txt in items:
-		var slot : ShelfSlot = preload("res://scenes/shelf_slot.tscn").instantiate()
+		var slot : ShelfSlot = preload("res://scenes/items/shelf_slot.tscn").instantiate()
 		slot.slot_texture = txt
 
 		var s_Texture : TextureRect = slot.get_node("Texture")
 		if s_Texture:
 			s_Texture.texture = txt
-			s_Texture.visible = true
+			s_Texture.visible = false
 			s_Texture.scale = Vector2(0.2, 0.2)
 		slot.visible = true
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])
-
-func readyGuide():
-	pass
+		UI.GuideSheet.get_children()[i].texture = items[i]
