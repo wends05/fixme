@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqiv31xlh6p47"]
+
+[ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="1_mdrby"]
+[ext_resource type="PackedScene" uid="uid://bu8w6ri5lucg3" path="res://scenes/items/ui.tscn" id="2_lulms"]
+
+[node name="Game - Fruits and Vegetables" type="Node2D"]
+
+[node name="Hand" parent="." instance=ExtResource("1_mdrby")]
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 144.0
+offset_bottom = 152.0
+
+[node name="UI" parent="." instance=ExtResource("2_lulms")]
+offset_left = 8.0
+offset_right = 48.0

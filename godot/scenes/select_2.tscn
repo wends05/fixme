@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://82r1hunwkpgv"]
+
+[node name="select2" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 648.0
+offset_top = 216.0
+offset_right = 832.0
+offset_bottom = 352.0
+text = "titrdrdfgmdfgd"
