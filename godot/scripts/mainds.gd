@@ -51,7 +51,7 @@ func _process(_delta):
 		#print(globals.hand_data)
 
 		hand.move(x, y)
-		hand.hover() if getting else hand.not_hovering()
+		hand.close() if getting else hand.open()
 
 func readyItems():
 	items.shuffle()
@@ -67,7 +67,6 @@ func readyItems():
 
 	for i in range(10):
 		$Items/Box_Items.get_children()[i].add_child(textures[i])
-		print($Items/Box_Items.get_children()[i].get_child(0))
 
 func readyShelf():
 	items.shuffle()
@@ -76,8 +75,16 @@ func readyShelf():
 	for txt in items:
 		var slot : ShelfSlot = preload("res://scenes/shelf_slot.tscn").instantiate()
 		slot.slot_texture = txt
-		slot.scale = Vector2(0.1, 0.1)
+
+		var s_Texture : TextureRect = slot.get_node("Texture")
+		if s_Texture:
+			s_Texture.texture = txt
+			s_Texture.visible = true
+			s_Texture.scale = Vector2(0.2, 0.2)
 		slot.visible = true
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])
+
+func readyGuide():
+	pass

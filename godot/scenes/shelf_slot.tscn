@@ -8,12 +8,12 @@
 script = ExtResource("1_g7gfh")
 
 [node name="Texture" type="TextureRect" parent="."]
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = -48.0
+offset_top = -48.0
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_du1y7")
