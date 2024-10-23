@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://itgwd6ienru1"]
+[gd_scene load_steps=7 format=3 uid="uid://itgwd6ienru1"]
 
 [ext_resource type="Script" path="res://scripts/mainds.gd" id="1_xikib"]
 [ext_resource type="Texture2D" uid="uid://x57dj3cub0gq" path="res://assets/section_1_bg.png" id="2_4xv32"]
 [ext_resource type="Texture2D" uid="uid://yrfs7657hcbx" path="res://assets/open_box.png" id="2_drhxa"]
 [ext_resource type="Texture2D" uid="uid://dl50wecbqjrtk" path="res://assets/shelf.png" id="3_boitr"]
 [ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="4_6r75w"]
+[ext_resource type="PackedScene" uid="uid://bu8w6ri5lucg3" path="res://scenes/ui.tscn" id="6_muv1p"]
 
 [node name="Game - Drinks and Snacks" type="Node2D" node_paths=PackedStringArray("hand")]
 script = ExtResource("1_xikib")
@@ -31,16 +32,10 @@ offset_bottom = 643.0
 texture = ExtResource("3_boitr")
 expand_mode = 1
 
-[node name="Hand" parent="." instance=ExtResource("4_6r75w")]
-offset_left = 0.0
-offset_top = 8.0
-offset_right = 128.0
-offset_bottom = 136.0
-
 [node name="Items" type="Node2D" parent="."]
 
 [node name="Shelf Items" type="Node2D" parent="Items"]
-position = Vector2(16, -24)
+position = Vector2(0, -24)
 
 [node name="Shelf_0" type="Node2D" parent="Items/Shelf Items"]
 position = Vector2(632, 288)
@@ -101,3 +96,12 @@ position = Vector2(464, 440)
 
 [node name="Box_Item10" type="Node2D" parent="Items/Box_Items"]
 position = Vector2(496, 432)
+
+[node name="UI" parent="." instance=ExtResource("6_muv1p")]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Hand" parent="." instance=ExtResource("4_6r75w")]
+offset_top = 8.0
+offset_bottom = 136.0
+calibrateX = -100.0

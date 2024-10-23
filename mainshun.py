@@ -54,7 +54,7 @@ while cap.isOpened():
             distance = cv2.norm((thumb_x - middle_x, thumb_y - middle_y))
 
             # Check if the hand is closed 
-            hand_closed = distance < 70 
+            hand_closed = distance < 50 
 
 
         # If no hands are detected, stop dragging
