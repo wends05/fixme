@@ -25,3 +25,15 @@ func _on_close_guide_toggled(toggled_on: bool) -> void:
 		guideBG.visible = false
 		$"Close Guide".visible = false
 		$"Guide Button".visible = true
+
+func pause():
+	pass
+
+func resume():
+	pass
+
+func restart():
+	pass
+
+func quit():
+	pass
