@@ -18,28 +18,47 @@ var items: Array[Resource] = [biscoff, c2, cheetos, doritos, mayo, milk, oreo, s
 var server := UDPServer.new()
 @export var hand : Hand
 @export var UI : UI
-
+@onready var game_timer = $Timer
 var timer_ended = false
 
 
 func _ready():
+
+	globals.score = 0
+	globals.win = false
+	globals.time_left = 120
+
 	server.listen(4523)
 	readyItems()
 	readyShelfandGuide()
 	UI.timer_ended.connect(end_game)
+	globals.scoreIncreased.connect(checkScore)
+	UI.playCountdown()
+
+func checkScore():
+	if globals.score == 9:
+		game_timer.paused = true
+		globals.time_left = game_timer.time_left
+		globals.win = false
+		end_game()
 
 func end_game():
 	timer_ended = true
 	print_verbose("timer ended")
+	if globals.win:
+		get_tree().change_scene_to_file("res://scenes/win.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/lose.tscn")
+
+
 func _process(_delta):
+
 	if timer_ended: return
 
 	server.poll()
 	if server.is_connection_available():
 		var peer: PacketPeerUDP = server.take_connection()
 		var packet = peer.get_packet()
-		#print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
-		#print("Received data: %s" % [packet.get_string_from_utf8()])
 
 		var data : String = JSON.parse_string(packet.get_string_from_utf8()).position
 		var getting = JSON.parse_string(packet.get_string_from_utf8()).getting
@@ -83,11 +102,12 @@ func readyShelfandGuide():
 		slot.slot_texture = txt
 
 		var s_Texture : TextureRect = slot.get_node("Texture")
+
 		if s_Texture:
 			s_Texture.texture = txt
 			s_Texture.visible = false
 			s_Texture.scale = Vector2(0.2, 0.2)
-		slot.visible = true
+
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])

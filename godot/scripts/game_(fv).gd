@@ -27,6 +27,7 @@ func _ready():
 	readyItems()
 	readyShelfandGuide()
 	UI.timer_ended.connect(end_game)
+	UI.playCountdown()
 
 func end_game():
 	timer_ended = true
@@ -38,8 +39,6 @@ func _process(_delta):
 	if server.is_connection_available():
 		var peer: PacketPeerUDP = server.take_connection()
 		var packet = peer.get_packet()
-		#print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
-		#print("Received data: %s" % [packet.get_string_from_utf8()])
 
 		var data : String = JSON.parse_string(packet.get_string_from_utf8()).position
 		var getting = JSON.parse_string(packet.get_string_from_utf8()).getting
@@ -63,6 +62,7 @@ func readyItems():
 	var textures : Array = []
 	for txt in items:
 		var item : Item = preload("res://scenes/items/item.tscn").instantiate()
+		item.ui = UI
 		if item.get_node("Texture"):
 			var item_texture = item.get_node("Texture")
 			item_texture.texture = txt
@@ -78,14 +78,16 @@ func readyShelfandGuide():
 	for txt in items:
 		var slot : ShelfSlot = preload("res://scenes/items/shelf_slot.tscn").instantiate()
 		slot.slot_texture = txt
+		print(txt)
 
 		var s_Texture : TextureRect = slot.get_node("Texture")
 		if s_Texture:
 			s_Texture.texture = txt
-			slot.visible = false
+			s_Texture.visible = false
+
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])
 		UI.GuideSheet.get_children()[i].texture = items[i]
-		for texture_rect in UI.GuideSheet.get_children():
-			texture_rect.scale = Vector2(2,2)
+	for texture_rect in UI.GuideSheet.get_children():
+		texture_rect.scale = Vector2(2,2)

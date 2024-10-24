@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu8w6ri5lucg3"]
+[gd_scene load_steps=25 format=3 uid="uid://bu8w6ri5lucg3"]
 
 [ext_resource type="Script" path="res://scripts/button.gd" id="1_5mikc"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_721w6"]
@@ -9,43 +9,48 @@
 [ext_resource type="Texture2D" uid="uid://dyxh6c3huuikc" path="res://assets/Buttons/x_button.png" id="5_qd6ql"]
 [ext_resource type="FontFile" uid="uid://dpc8gjfu8jr10" path="res://assets/fonts/VT323/VT323-Regular.ttf" id="6_8rv00"]
 [ext_resource type="Texture2D" uid="uid://dfsn1tpelo46c" path="res://assets/Buttons/x_button_hover.png" id="6_epufq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfjk8"]
-size = Vector2(66.5, 58)
+[ext_resource type="Texture2D" uid="uid://bpce35gmujkdf" path="res://assets/Buttons/Pause.png" id="10_psxdf"]
+[ext_resource type="Texture2D" uid="uid://bc36fhbc8a3eh" path="res://assets/Buttons/Resume.png" id="11_2csjv"]
+[ext_resource type="Texture2D" uid="uid://c2e4u8yklu33c" path="res://assets/Buttons/Pause - Pressed.png" id="11_7pd4u"]
+[ext_resource type="Texture2D" uid="uid://d11kknksyb7p" path="res://assets/Buttons/Restart.png" id="12_7k1pb"]
+[ext_resource type="Texture2D" uid="uid://bpexhs2hsvkhv" path="res://assets/Buttons/exit.png" id="13_afq6j"]
+[ext_resource type="Texture2D" uid="uid://d06gwv8xo0m14" path="res://assets/Buttons/Resume - Pressed.png" id="13_iu8s7"]
+[ext_resource type="Texture2D" uid="uid://ctwgnfu3v1bmu" path="res://assets/Buttons/Restart - Pressed.png" id="15_p6p6x"]
+[ext_resource type="Texture2D" uid="uid://ce6a53sgmumij" path="res://assets/Buttons/exit - Pressed.png" id="17_redpm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x6rjh"]
 font = ExtResource("6_8rv00")
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfjk8"]
+size = Vector2(66.5, 58)
+
+[sub_resource type="LabelSettings" id="LabelSettings_32qnt"]
+font = ExtResource("6_8rv00")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ri7"]
+size = Vector2(98, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbtah"]
+size = Vector2(163, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvn0v"]
+size = Vector2(163, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gisv"]
+size = Vector2(144, 20)
+
 [node name="UI" type="Control"]
+process_mode = 3
+physics_interpolation_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_721w6")
-
-[node name="Guide Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1024.0
-offset_top = 512.0
-offset_right = 1088.0
-offset_bottom = 576.0
-toggle_mode = true
-icon = ExtResource("2_h15lv")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("1_5mikc")
-hoverTexture = ExtResource("4_kwrtl")
-normalTexture = ExtResource("2_h15lv")
-
-[node name="Area2D" type="Area2D" parent="Guide Button"]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guide Button/Area2D"]
-position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_cfjk8")
 
 [node name="Timer" type="TextureRect" parent="."]
 layout_mode = 0
@@ -145,6 +150,28 @@ offset_bottom = 303.243
 scale = Vector2(0.2, 0.2)
 stretch_mode = 3
 
+[node name="Guide Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 512.0
+offset_right = 1088.0
+offset_bottom = 576.0
+toggle_mode = true
+icon = ExtResource("2_h15lv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_5mikc")
+hoverTexture = ExtResource("4_kwrtl")
+normalTexture = ExtResource("2_h15lv")
+
+[node name="Area2D" type="Area2D" parent="Guide Button"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guide Button/Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_cfjk8")
+
 [node name="Close Guide" type="Button" parent="."]
 visible = false
 layout_mode = 0
@@ -168,9 +195,155 @@ collision_layer = 8
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_cfjk8")
 
+[node name="Countdown" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.627451)
+
+[node name="Label" type="Label" parent="Countdown"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -25.0
+offset_right = 64.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_32qnt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownTimer" type="Timer" parent="Countdown"]
+one_shot = true
+
+[node name="Pause Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 592.0
+offset_right = 136.0
+offset_bottom = 624.0
+toggle_mode = true
+icon = ExtResource("10_psxdf")
+flat = true
+expand_icon = true
+script = ExtResource("1_5mikc")
+hoverTexture = ExtResource("11_7pd4u")
+normalTexture = ExtResource("10_psxdf")
+
+[node name="Area2D" type="Area2D" parent="Pause Button"]
+process_mode = 3
+physics_interpolation_mode = 1
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pause Button/Area2D"]
+process_mode = 3
+position = Vector2(55, 16)
+shape = SubResource("RectangleShape2D_f6ri7")
+
+[node name="Main Menu" type="VBoxContainer" parent="."]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -324.0
+offset_right = 128.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="Main Menu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("11_2csjv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_5mikc")
+hoverTexture = ExtResource("13_iu8s7")
+normalTexture = ExtResource("11_2csjv")
+
+[node name="Area2D" type="Area2D" parent="Main Menu/Resume"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Menu/Resume/Area2D"]
+position = Vector2(126.5, 23)
+shape = SubResource("RectangleShape2D_wbtah")
+
+[node name="Control" type="Control" parent="Main Menu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="Main Menu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("12_7k1pb")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_5mikc")
+hoverTexture = ExtResource("15_p6p6x")
+normalTexture = ExtResource("12_7k1pb")
+
+[node name="Area2D" type="Area2D" parent="Main Menu/Restart"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Menu/Restart/Area2D"]
+position = Vector2(128, 25)
+shape = SubResource("RectangleShape2D_gvn0v")
+
+[node name="Control2" type="Control" parent="Main Menu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="Main Menu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("13_afq6j")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_5mikc")
+hoverTexture = ExtResource("17_redpm")
+normalTexture = ExtResource("13_afq6j")
+
+[node name="Area2D" type="Area2D" parent="Main Menu/Quit"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Menu/Quit/Area2D"]
+position = Vector2(128, 23)
+shape = SubResource("RectangleShape2D_0gisv")
+
 [connection signal="toggled" from="Guide Button" to="." method="_on_guide_button_toggled"]
 [connection signal="area_entered" from="Guide Button/Area2D" to="Guide Button" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Guide Button/Area2D" to="Guide Button" method="_on_area_2d_area_exited"]
 [connection signal="toggled" from="Close Guide" to="." method="_on_close_guide_toggled"]
 [connection signal="area_entered" from="Close Guide/Area2D" to="Close Guide" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Close Guide/Area2D" to="Close Guide" method="_on_area_2d_area_exited"]
+[connection signal="toggled" from="Pause Button" to="." method="_on_pause_button_toggled"]
+[connection signal="area_entered" from="Pause Button/Area2D" to="Guide Button" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Pause Button/Area2D" to="Guide Button" method="_on_area_2d_area_exited"]
+[connection signal="toggled" from="Main Menu/Resume" to="." method="_on_resume_toggled"]
+[connection signal="area_entered" from="Main Menu/Resume/Area2D" to="Guide Button" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Main Menu/Resume/Area2D" to="Guide Button" method="_on_area_2d_area_exited"]
+[connection signal="toggled" from="Main Menu/Restart" to="." method="_on_restart_toggled"]
+[connection signal="area_entered" from="Main Menu/Restart/Area2D" to="Guide Button" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Main Menu/Restart/Area2D" to="Guide Button" method="_on_area_2d_area_exited"]
+[connection signal="toggled" from="Main Menu/Quit" to="." method="_on_quit_toggled"]
+[connection signal="area_entered" from="Main Menu/Quit/Area2D" to="Guide Button" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Main Menu/Quit/Area2D" to="Guide Button" method="_on_area_2d_area_exited"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://47fiodfmqv8o"]
+
+[ext_resource type="Texture2D" uid="uid://c1byw3lhsr81c" path="res://assets/gameover.png" id="1_lw1g7"]
+[ext_resource type="Texture2D" uid="uid://bpexhs2hsvkhv" path="res://assets/Buttons/exit.png" id="2_mfa6h"]
+
+[node name="lose" type="Node2D"]
+
+[node name="Gameover" type="Sprite2D" parent="."]
+position = Vector2(567, 283)
+scale = Vector2(5.16324, 5.16324)
+texture = ExtResource("1_lw1g7")
+
+[node name="Exit" type="Sprite2D" parent="."]
+position = Vector2(567, 494)
+scale = Vector2(5.25, 5.25)
+texture = ExtResource("2_mfa6h")
