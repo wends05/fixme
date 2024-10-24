@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://82r1hunwkpgv"]
+[gd_scene load_steps=5 format=3 uid="uid://b14l7y65c8xw"]
+
+[ext_resource type="Texture2D" uid="uid://bgqpu88rxgy7d" path="res://assets/selection bg.png" id="1_yu2ky"]
+[ext_resource type="Texture2D" uid="uid://btvpskgo8ov34" path="res://assets/Fruits and Veggies BG selection.png" id="2_xe8nl"]
+[ext_resource type="Texture2D" uid="uid://dlf836uvapo8t" path="res://assets/section 1 bg selection.png" id="3_6spwh"]
+[ext_resource type="Texture2D" uid="uid://c6rwf3h2fmw3" path="res://assets/selecting....png" id="4_paurn"]
 
 [node name="select2" type="Node2D"]
 
@@ -8,3 +13,31 @@ offset_top = 216.0
 offset_right = 832.0
 offset_bottom = 352.0
 text = "titrdrdfgmdfgd"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(580, 320)
+scale = Vector2(1.00667, 0.672)
+texture = ExtResource("1_yu2ky")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 24.0
+offset_right = 537.0
+offset_bottom = 512.0
+icon = ExtResource("2_xe8nl")
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 615.0
+offset_top = 56.0
+offset_right = 1111.0
+offset_bottom = 480.0
+icon = ExtResource("3_6spwh")
+flat = true
+expand_icon = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(640, 568)
+scale = Vector2(0.481056, 0.42316)
+texture = ExtResource("4_paurn")
