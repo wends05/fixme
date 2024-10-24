@@ -1,18 +1,18 @@
-class_name GameDS
+class_name GameFV
 extends Node2D
 
-var biscoff = preload("res://assets/items/drinks and snacks/biscoff.png")
-var c2 = preload("res://assets/items/drinks and snacks/c2.png")
-var cheetos = preload("res://assets/items/drinks and snacks/cheetos.png")
-var doritos = preload("res://assets/items/drinks and snacks/doritos.png")
-var mayo = preload("res://assets/items/drinks and snacks/mayo.png")
-var milk = preload("res://assets/items/drinks and snacks/milk.png")
-var oreo = preload("res://assets/items/drinks and snacks/oreo.png")
-var spam = preload("res://assets/items/drinks and snacks/spam.png")
-var tinapay = preload("res://assets/items/drinks and snacks/tinapay.png")
-var some_item = preload("res://assets/items/drinks and snacks/idkwhatthisis.png")
+var apples = preload("res://assets/items/fruits and veggies/apples.png")
+var banana = preload("res://assets/items/fruits and veggies/banana.png")
+var brocolli = preload("res://assets/items/fruits and veggies/brocolli.png")
+var cabbage = preload("res://assets/items/fruits and veggies/cabbage.png")
+var carrot = preload("res://assets/items/fruits and veggies/carrot.png")
+var cucumber = preload("res://assets/items/fruits and veggies/cucumber.png")
+var grapes = preload("res://assets/items/fruits and veggies/Grapes (1).png")
+var mango = preload("res://assets/items/fruits and veggies/mango.png")
+var pineapple = preload("res://assets/items/fruits and veggies/pineapple.png")
+var squash = preload("res://assets/items/fruits and veggies/squash (1).png")
 
-var items: Array[Resource] = [biscoff, c2, cheetos, doritos, mayo, milk, oreo, spam, tinapay, some_item]
+var items: Array[Resource] = [apples, banana, brocolli, cabbage, carrot, cucumber, grapes, mango, pineapple, squash]
 
 
 var server := UDPServer.new()
@@ -53,7 +53,6 @@ func _process(_delta):
 				"y": y
 			}
 		}
-		#print(globals.hand_data)
 
 		hand.move(x, y)
 		hand.close() if getting else hand.open()
@@ -64,11 +63,9 @@ func readyItems():
 	var textures : Array = []
 	for txt in items:
 		var item : Item = preload("res://scenes/items/item.tscn").instantiate()
-		item.ui = UI
 		if item.get_node("Texture"):
 			var item_texture = item.get_node("Texture")
 			item_texture.texture = txt
-		item.scale = Vector2(0.1, 0.1)
 		textures.append(item)
 
 	for i in range(10):
@@ -85,10 +82,10 @@ func readyShelfandGuide():
 		var s_Texture : TextureRect = slot.get_node("Texture")
 		if s_Texture:
 			s_Texture.texture = txt
-			s_Texture.visible = false
-			s_Texture.scale = Vector2(0.2, 0.2)
-		slot.visible = true
+			slot.visible = false
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])
 		UI.GuideSheet.get_children()[i].texture = items[i]
+		for texture_rect in UI.GuideSheet.get_children():
+			texture_rect.scale = Vector2(2,2)

@@ -98,9 +98,13 @@ position = Vector2(464, 440)
 [node name="Box_Item10" type="Node2D" parent="Items/Box_Items"]
 position = Vector2(496, 432)
 
-[node name="UI" parent="." instance=ExtResource("6_muv1p")]
+[node name="UI" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("6_muv1p")]
+timer = NodePath("../Timer")
 
 [node name="Hand" parent="." instance=ExtResource("4_6r75w")]
 offset_top = 8.0
 offset_bottom = 136.0
 calibrateX = -100.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

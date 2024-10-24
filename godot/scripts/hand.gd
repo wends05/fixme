@@ -60,6 +60,7 @@ func _process(delta: float) -> void:
 				print("omg it match")
 				grabbed_texture.texture = null
 				slot.texture.visible = true
+				globals.score += 1
 			print(slot.texture.texture, " ", grabbed_texture.texture)
 			print("Trying to drop in the slot")
 		else:

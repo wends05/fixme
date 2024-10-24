@@ -1,15 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu8w6ri5lucg3"]
+[gd_scene load_steps=12 format=3 uid="uid://bu8w6ri5lucg3"]
 
 [ext_resource type="Script" path="res://scripts/button.gd" id="1_5mikc"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_721w6"]
 [ext_resource type="Texture2D" uid="uid://ccalu672bb6d3" path="res://assets/Buttons/guide.png" id="2_h15lv"]
 [ext_resource type="Texture2D" uid="uid://ixx5fmmb1iga" path="res://assets/Buttons/guide_hover.png" id="4_kwrtl"]
+[ext_resource type="Texture2D" uid="uid://dnfjn8bksdyub" path="res://assets/timer_placeholder.png" id="5_f6h0v"]
 [ext_resource type="Texture2D" uid="uid://bo1571bbva7ji" path="res://assets/guide_sheet.png" id="5_f86t2"]
 [ext_resource type="Texture2D" uid="uid://dyxh6c3huuikc" path="res://assets/Buttons/x_button.png" id="5_qd6ql"]
+[ext_resource type="FontFile" uid="uid://dpc8gjfu8jr10" path="res://assets/fonts/VT323/VT323-Regular.ttf" id="6_8rv00"]
 [ext_resource type="Texture2D" uid="uid://dfsn1tpelo46c" path="res://assets/Buttons/x_button_hover.png" id="6_epufq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfjk8"]
 size = Vector2(66.5, 58)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x6rjh"]
+font = ExtResource("6_8rv00")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -39,6 +46,27 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guide Button/Area2D"]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_cfjk8")
+
+[node name="Timer" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 176.0
+texture = ExtResource("5_f6h0v")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TimerLabel" type="Label" parent="Timer"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 176.0
+offset_bottom = 71.0
+text = "time"
+label_settings = SubResource("LabelSettings_x6rjh")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GuideBG" type="ColorRect" parent="."]
 visible = false

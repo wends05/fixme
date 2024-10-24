@@ -8,3 +8,5 @@ var hand_data = {
 		"y": ""
 	}
 }
+
+var score: int = 0
