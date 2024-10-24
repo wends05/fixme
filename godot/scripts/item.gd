@@ -10,6 +10,8 @@ class_name Item
 func _ready() -> void:
 	ui.guide_opened.connect(disable_collisions)
 	ui.guide_closed.connect(enable_collisions)
+	ui.is_paused.connect(disable_collisions)
+	ui.is_resumed.connect(enable_collisions)
 
 func disable_collisions():
 	hitbox.set_collision_layer_value(2, false)

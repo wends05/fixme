@@ -98,10 +98,10 @@ position = Vector2(464, 440)
 [node name="Box_Item10" type="Node2D" parent="Items/Box_Items"]
 position = Vector2(496, 432)
 
-[node name="UI" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_lulms")]
-offset_left = 8.0
-offset_right = 48.0
+[node name="UI" parent="." node_paths=PackedStringArray("timer", "items", "box") instance=ExtResource("2_lulms")]
 timer = NodePath("../Timer")
+items = NodePath("../Items")
+box = NodePath("../Box")
 
 [node name="TextureRect" parent="UI/GuideBG/GuideSheet" index="0"]
 offset_left = -261.313
@@ -158,9 +158,7 @@ offset_right = 172.587
 offset_bottom = 259.691
 
 [node name="Hand" parent="." instance=ExtResource("1_mdrby")]
-offset_left = 16.0
 offset_top = 24.0
-offset_right = 144.0
 offset_bottom = 152.0
 
 [node name="Timer" type="Timer" parent="."]
