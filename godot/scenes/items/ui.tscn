@@ -140,7 +140,6 @@ position = Vector2(96, 548)
 scale = Vector2(0.3, 0.3125)
 
 [node name="Manager" type="AnimatedSprite2D" parent="Tao"]
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ddmqb")
 animation = &"idle"
 autoplay = "idle"
