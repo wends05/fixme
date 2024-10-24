@@ -11,15 +11,31 @@ config_version=5
 [application]
 
 config/name="godot"
-run/main_scene="res://node_2d.tscn"
+run/main_scene="res://scenes/game (ds).tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+globals="*res://scripts/globals.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
 project/assembly_name="godot"
 
+[layer_names]
+
+2d_physics/layer_1="Hand"
+2d_physics/layer_2="Inventory"
+2d_physics/layer_3="Shelf"
+2d_physics/layer_4="Button"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
