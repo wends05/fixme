@@ -31,7 +31,7 @@ func _ready():
 	server.listen(4523)
 	readyItems()
 	readyShelfandGuide()
-	UI.timer_ended.connect(end_game)
+	game_timer.timeout.connect(end_game)
 	globals.scoreIncreased.connect(checkScore)
 	UI.playCountdown()
 
@@ -39,12 +39,16 @@ func checkScore():
 	if globals.score == 9:
 		game_timer.paused = true
 		globals.time_left = game_timer.time_left
-		globals.win = false
+		globals.win = true
 		end_game()
 
+var changing_scene = false
+
 func end_game():
+	if changing_scene:
+		return
+	changing_scene = true
 	timer_ended = true
-	print_verbose("timer ended")
 	if globals.win:
 		get_tree().change_scene_to_file("res://scenes/win.tscn")
 	else:
