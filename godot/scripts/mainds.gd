@@ -11,6 +11,7 @@ var server := UDPServer.new()
 @export var UI: UI
 
 @export var item_scale: Vector2
+
 @export var shelf_item_scale: Vector2
 
 @onready var game_timer = $Timer
@@ -29,7 +30,6 @@ func _ready():
 
 	globals.scoreIncreased.connect(checkScore)
 	game_timer.timeout.connect(end_game)
-	UI.playCountdown()
 
 func checkScore():
 	if globals.score == 9:
@@ -41,10 +41,8 @@ func checkScore():
 
 func end_game():
 	timer_ended = true
-	if globals.win:
-		get_tree().change_scene_to_file("res://scenes/win.tscn")
-	else:
-		get_tree().change_scene_to_file("res://scenes/lose.tscn")
+	await UI.closeDoors()
+	get_tree().change_scene_to_file("res://scenes/endgame.tscn")
 
 
 func _process(_delta):

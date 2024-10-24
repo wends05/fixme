@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://7cotwnnvrasf" path="res://assets/items/fruits and veggies/apples.png" id="2_bau8k"]
 [ext_resource type="Texture2D" uid="uid://ccdhjwikajy3j" path="res://assets/Fruits and Veggies BG.png" id="2_csk2t"]
 [ext_resource type="PackedScene" uid="uid://bu8w6ri5lucg3" path="res://scenes/items/ui.tscn" id="2_lulms"]
-[ext_resource type="Texture2D" uid="uid://yrfs7657hcbx" path="res://assets/open_box.png" id="2_nbaud"]
 [ext_resource type="Texture2D" uid="uid://78bw05ufygyt" path="res://assets/F&G Shelf.png" id="3_44nv6"]
 [ext_resource type="Texture2D" uid="uid://c604kl54uq5pw" path="res://assets/items/fruits and veggies/banana.png" id="3_yjv8c"]
 [ext_resource type="Texture2D" uid="uid://xexpncae6b3g" path="res://assets/items/fruits and veggies/brocolli.png" id="4_a1uwg"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://pssiou6h8t2q" path="res://assets/items/fruits and veggies/mango.png" id="9_ok6ov"]
 [ext_resource type="Texture2D" uid="uid://cut5fy7dodrf8" path="res://assets/items/fruits and veggies/pineapple.png" id="10_fll8t"]
 [ext_resource type="Texture2D" uid="uid://cifmxiiev51hp" path="res://assets/items/fruits and veggies/squash (1).png" id="11_jisth"]
+[ext_resource type="Texture2D" uid="uid://oxvrubgfl83g" path="res://assets/closed_box.png" id="13_kfl8u"]
 
 [node name="Game - Fruits and Vegetables" type="Node2D" node_paths=PackedStringArray("hand", "UI")]
 script = ExtResource("1_xoe2f")
@@ -23,7 +23,7 @@ items = Array[CompressedTexture2D]([ExtResource("2_bau8k"), ExtResource("3_yjv8c
 hand = NodePath("Hand")
 UI = NodePath("UI")
 item_scale = Vector2(1, 1)
-shelf_item_scale = Vector2(2, 2)
+shelf_item_scale = Vector2(1.2, 1.2)
 
 [node name="FruitsAndVeggiesBg" type="TextureRect" parent="."]
 offset_left = -8.0
@@ -34,22 +34,26 @@ scale = Vector2(9.8, 7.2)
 texture = ExtResource("2_csk2t")
 
 [node name="Box" type="TextureRect" parent="."]
-offset_left = 144.0
+offset_left = 136.0
 offset_top = 280.0
-offset_right = 560.0
+offset_right = 552.0
 offset_bottom = 696.0
-texture = ExtResource("2_nbaud")
+texture = ExtResource("13_kfl8u")
 expand_mode = 1
 
-[node name="F&gShelf" type="Sprite2D" parent="."]
-position = Vector2(736, 384)
+[node name="F&gShelf" type="TextureRect" parent="."]
+offset_left = 528.0
+offset_top = 80.0
+offset_right = 592.0
+offset_bottom = 164.0
 scale = Vector2(7.1875, 7.1875)
 texture = ExtResource("3_44nv6")
 
 [node name="Items" type="Node2D" parent="."]
+visible = false
 
 [node name="Shelf Items" type="Node2D" parent="Items"]
-position = Vector2(24, 0)
+position = Vector2(16, -24)
 
 [node name="Shelf_0" type="Node2D" parent="Items/Shelf Items"]
 position = Vector2(656, 288)
@@ -111,6 +115,10 @@ position = Vector2(464, 440)
 [node name="Box_Item10" type="Node2D" parent="Items/Box_Items"]
 position = Vector2(496, 432)
 
+[node name="Hand" parent="." instance=ExtResource("1_mdrby")]
+offset_top = 456.0
+offset_bottom = 584.0
+
 [node name="UI" parent="." node_paths=PackedStringArray("timer", "items", "box") instance=ExtResource("2_lulms")]
 timer = NodePath("../Timer")
 items = NodePath("../Items")
@@ -121,58 +129,63 @@ offset_left = -261.313
 offset_top = -348.417
 offset_right = -221.313
 offset_bottom = -308.417
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect2" parent="UI/GuideBG/GuideSheet" index="1"]
 offset_left = -87.1041
 offset_top = -348.417
 offset_right = -47.1041
 offset_bottom = -308.417
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect3" parent="UI/GuideBG/GuideSheet" index="2"]
 offset_left = 72.5874
 offset_top = -348.417
 offset_right = 112.587
 offset_bottom = -308.417
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect4" parent="UI/GuideBG/GuideSheet" index="3"]
 offset_left = -261.313
 offset_top = -87.104
 offset_right = -221.313
 offset_bottom = -47.104
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect5" parent="UI/GuideBG/GuideSheet" index="4"]
 offset_left = -87.1041
 offset_top = -87.104
 offset_right = -47.1041
 offset_bottom = -47.104
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect6" parent="UI/GuideBG/GuideSheet" index="5"]
 offset_left = 72.5874
 offset_top = -87.104
 offset_right = 112.587
 offset_bottom = -47.104
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect7" parent="UI/GuideBG/GuideSheet" index="6"]
 offset_left = -261.313
 offset_top = 145.174
 offset_right = -221.313
 offset_bottom = 185.174
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect8" parent="UI/GuideBG/GuideSheet" index="7"]
 offset_left = -101.622
 offset_top = 145.174
 offset_right = -61.6215
 offset_bottom = 185.174
+scale = Vector2(1.8, 1.8)
 
 [node name="TextureRect9" parent="UI/GuideBG/GuideSheet" index="8"]
 offset_left = 72.5874
 offset_top = 159.691
 offset_right = 172.587
 offset_bottom = 259.691
-
-[node name="Hand" parent="." instance=ExtResource("1_mdrby")]
-offset_top = 24.0
-offset_bottom = 152.0
+scale = Vector2(1.8, 1.8)
 
 [node name="Timer" type="Timer" parent="."]
 

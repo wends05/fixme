@@ -44,7 +44,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 			slot = null
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	if not grabbed_texture.texture:
 		return

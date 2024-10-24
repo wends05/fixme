@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://bb621n8fsnxxo"]
+
+[ext_resource type="Script" path="res://scripts/win.gd" id="1_fa7bg"]
+[ext_resource type="Texture2D" uid="uid://doqxxqot8fsiv" path="res://assets/win.png" id="2_15x4n"]
+[ext_resource type="Texture2D" uid="uid://bpexhs2hsvkhv" path="res://assets/Buttons/exit.png" id="3_fwcpa"]
+[ext_resource type="FontFile" uid="uid://dpc8gjfu8jr10" path="res://assets/fonts/VT323/VT323-Regular.ttf" id="4_ctjb8"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="4_x2ag1"]
+[ext_resource type="Texture2D" uid="uid://ce6a53sgmumij" path="res://assets/Buttons/exit - Pressed.png" id="5_faoge"]
+[ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="6_xbduu"]
+[ext_resource type="Texture2D" uid="uid://cgtyqngp8k0ya" path="res://assets/right door.png" id="8_7awrm"]
+[ext_resource type="Texture2D" uid="uid://dtqhp22tlnhiv" path="res://assets/left_door_cutscene.png" id="9_j25ag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4an2"]
+size = Vector2(186, 29)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qtps4"]
+font = ExtResource("4_ctjb8")
+font_size = 25
+
+[node name="endgame" type="Node2D" node_paths=PackedStringArray("hand")]
+script = ExtResource("1_fa7bg")
+hand = NodePath("Hand")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -64.0
+offset_top = -72.0
+offset_right = 1216.0
+offset_bottom = 704.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Display" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -260.0
+offset_right = -118.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.455, 4.94)
+texture = ExtResource("2_15x4n")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 188.0
+offset_right = 128.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+icon = ExtResource("3_fwcpa")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_x2ag1")
+hoverTexture = ExtResource("5_faoge")
+normalTexture = ExtResource("3_fwcpa")
+
+[node name="Area2D" type="Area2D" parent="Control/Button"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Button/Area2D"]
+position = Vector2(128, 30.5)
+shape = SubResource("RectangleShape2D_f4an2")
+
+[node name="Stats" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 60.0
+offset_right = 128.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Some stats message"
+label_settings = SubResource("LabelSettings_qtps4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hand" parent="." instance=ExtResource("6_xbduu")]
+
+[node name="RightDoor" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.96, 0.648)
+texture = ExtResource("8_7awrm")
+
+[node name="LeftDoor" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.96, 0.648)
+texture = ExtResource("9_j25ag")
+
+[connection signal="toggled" from="Control/Button" to="." method="_on_button_toggled"]

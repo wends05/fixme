@@ -5,11 +5,12 @@ extends Node2D
 @export var hand : Hand
 var server := UDPServer.new()
 
+# Called when the new scene is ready
 func _ready() -> void:
 	open_doors()
 	server.listen(4523)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	server.poll()
 	if server.is_connection_available():
 		var peer: PacketPeerUDP = server.take_connection()
@@ -35,15 +36,18 @@ func _process(_delta: float) -> void:
 		else:
 			hand.open()
 
+# Function to open the doors
 func open_doors() -> void:
 	rightDoor.visible = true
 	leftDoor.visible = true
+	await get_tree().create_timer(1.0).timeout  # Pause for 1 second
 	var tween = create_tween()
+	# Animate right door opening to position (1152)
 	tween.tween_property(rightDoor, "position", Vector2(1152, rightDoor.position.y), 1.2)
+	# Animate left door opening to position (-576)
 	tween.set_parallel()
 	tween.tween_property(leftDoor, "position", Vector2(0, leftDoor.position.y), 1.2)
 
-# Function to close the doors
 func closed_doors() -> Tween:
 	var tween = create_tween()
 	tween.tween_property(rightDoor, "position", Vector2(576, rightDoor.position.y), 1.2)
@@ -51,9 +55,12 @@ func closed_doors() -> Tween:
 	tween.tween_property(leftDoor, "position", Vector2(576, leftDoor.position.y), 1.2)
 	return tween
 
+func _on_fruits_toggled(toggled_on: bool) -> void:
+	await closed_doors().finished
+	get_tree().change_scene_to_file("res://scenes/game (fv).tscn")
+	globals.background = preload("res://assets/Fruits and Veggies BG.png")
 
-func _on_play_button_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		var tween = closed_doors()
-		await tween.finished
-		get_tree().change_scene_to_file("res://scenes/select_2.tscn")
+func _on_drinks_toggled(toggled_on: bool) -> void:
+	await closed_doors().finished
+	get_tree().change_scene_to_file("res://scenes/game (ds).tscn")
+	globals.background = preload("res://assets/section_1_bg.png")
