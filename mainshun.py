@@ -37,7 +37,7 @@ def is_point_in_shape(point, shape):
         return cv2.pointPolygonTest(triangle_position, point, False) >= 0
     return False
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(2)
 
 # Set the desired width and height
 desired_width = 640
