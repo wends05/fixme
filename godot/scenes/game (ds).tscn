@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bu8w6ri5lucg3" path="res://scenes/items/ui.tscn" id="6_muv1p"]
 
 [node name="Game - Drinks and Snacks" type="Node2D" node_paths=PackedStringArray("hand", "UI")]
+process_mode = 3
 script = ExtResource("1_xikib")
 hand = NodePath("Hand")
 UI = NodePath("UI")
@@ -34,6 +35,7 @@ texture = ExtResource("3_boitr")
 expand_mode = 1
 
 [node name="Items" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="Shelf Items" type="Node2D" parent="Items"]
 position = Vector2(0, -24)
@@ -98,8 +100,10 @@ position = Vector2(464, 440)
 [node name="Box_Item10" type="Node2D" parent="Items/Box_Items"]
 position = Vector2(496, 432)
 
-[node name="UI" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("6_muv1p")]
+[node name="UI" parent="." node_paths=PackedStringArray("timer", "items", "box") instance=ExtResource("6_muv1p")]
 timer = NodePath("../Timer")
+items = NodePath("../Items")
+box = NodePath("../Box")
 
 [node name="Hand" parent="." instance=ExtResource("4_6r75w")]
 offset_top = 8.0
@@ -107,4 +111,5 @@ offset_bottom = 136.0
 calibrateX = -100.0
 
 [node name="Timer" type="Timer" parent="."]
+process_mode = 1
 one_shot = true

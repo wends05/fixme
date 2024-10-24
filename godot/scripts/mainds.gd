@@ -27,19 +27,18 @@ func _ready():
 	readyItems()
 	readyShelfandGuide()
 	UI.timer_ended.connect(end_game)
+	UI.playCountdown()
 
 func end_game():
 	timer_ended = true
 	print_verbose("timer ended")
+
 func _process(_delta):
 	if timer_ended: return
-
 	server.poll()
 	if server.is_connection_available():
 		var peer: PacketPeerUDP = server.take_connection()
 		var packet = peer.get_packet()
-		#print("Accepted peer: %s:%s" % [peer.get_packet_ip(), peer.get_packet_port()])
-		#print("Received data: %s" % [packet.get_string_from_utf8()])
 
 		var data : String = JSON.parse_string(packet.get_string_from_utf8()).position
 		var getting = JSON.parse_string(packet.get_string_from_utf8()).getting
@@ -83,11 +82,11 @@ func readyShelfandGuide():
 		slot.slot_texture = txt
 
 		var s_Texture : TextureRect = slot.get_node("Texture")
+
 		if s_Texture:
 			s_Texture.texture = txt
 			s_Texture.visible = false
-			s_Texture.scale = Vector2(0.2, 0.2)
-		slot.visible = true
+
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])

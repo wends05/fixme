@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://scripts/hand.gd" id="2_2jkd1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0u15n"]
-radius = 48.0
+radius = 26.6667
 
 [node name="Hand" type="TextureRect"]
+process_mode = 3
 offset_right = 128.0
 offset_bottom = 128.0
+scale = Vector2(1.5, 1.5)
 script = ExtResource("2_2jkd1")
 
 [node name="texture" type="TextureRect" parent="."]
@@ -30,6 +32,7 @@ position = Vector2(64, 64)
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5.33333, -5.33333)
 shape = SubResource("CircleShape2D_0u15n")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
