@@ -37,7 +37,7 @@ func _ready():
 
 func checkScore():
 	if globals.score == 9:
-		game_timer.paused()
+		game_timer.paused = true
 		globals.time_left = game_timer.time_left
 		globals.win = false
 		end_game()
@@ -105,8 +105,8 @@ func readyShelfandGuide():
 
 		if s_Texture:
 			s_Texture.texture = txt
-			s_Texture.visible = true
-			s_Texture.scale = Vector2(0.1, 0.1)
+			s_Texture.visible = false
+			s_Texture.scale = Vector2(0.2, 0.2)
 
 		slots.append(slot)
 	for i in range(9):
