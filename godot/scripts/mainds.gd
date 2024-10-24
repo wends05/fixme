@@ -18,23 +18,43 @@ var items: Array[Resource] = [biscoff, c2, cheetos, doritos, mayo, milk, oreo, s
 var server := UDPServer.new()
 @export var hand : Hand
 @export var UI : UI
-
+@onready var game_timer = $Timer
 var timer_ended = false
 
 
 func _ready():
+
+	globals.score = 0
+	globals.win = false
+	globals.time_left = 120
+
 	server.listen(4523)
 	readyItems()
 	readyShelfandGuide()
 	UI.timer_ended.connect(end_game)
+	globals.scoreIncreased.connect(checkScore)
 	UI.playCountdown()
+
+func checkScore():
+	if globals.score == 9:
+		game_timer.paused()
+		globals.time_left = game_timer.time_left
+		globals.win = false
+		end_game()
 
 func end_game():
 	timer_ended = true
 	print_verbose("timer ended")
+	if globals.win:
+		get_tree().change_scene_to_file("res://scenes/win.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/lose.tscn")
+
 
 func _process(_delta):
+
 	if timer_ended: return
+
 	server.poll()
 	if server.is_connection_available():
 		var peer: PacketPeerUDP = server.take_connection()
@@ -85,7 +105,8 @@ func readyShelfandGuide():
 
 		if s_Texture:
 			s_Texture.texture = txt
-			s_Texture.visible = false
+			s_Texture.visible = true
+			s_Texture.scale = Vector2(0.1, 0.1)
 
 		slots.append(slot)
 	for i in range(9):
