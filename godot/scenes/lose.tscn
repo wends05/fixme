@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch0hiwkfv8ase"]
+
+[ext_resource type="Texture2D" uid="uid://cc6oproeoac0b" path="res://assets/gameover.png" id="1_lw1g7"]
+
+[node name="lose" type="Node2D"]
+
+[node name="Gameover" type="Sprite2D" parent="."]
+position = Vector2(553, 342)
+scale = Vector2(3.84, 3.84)
+texture = ExtResource("1_lw1g7")
