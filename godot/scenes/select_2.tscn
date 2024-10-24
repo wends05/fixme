@@ -1,25 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://b14l7y65c8xw"]
+[gd_scene load_steps=8 format=3 uid="uid://b14l7y65c8xw"]
 
+[ext_resource type="Script" path="res://scenes/selection.gd" id="1_hi1vb"]
 [ext_resource type="Texture2D" uid="uid://bgqpu88rxgy7d" path="res://assets/selection bg.png" id="1_yu2ky"]
 [ext_resource type="Texture2D" uid="uid://btvpskgo8ov34" path="res://assets/Fruits and Veggies BG selection.png" id="2_xe8nl"]
 [ext_resource type="Texture2D" uid="uid://dlf836uvapo8t" path="res://assets/section 1 bg selection.png" id="3_6spwh"]
 [ext_resource type="Texture2D" uid="uid://c6rwf3h2fmw3" path="res://assets/selecting....png" id="4_paurn"]
+[ext_resource type="Texture2D" uid="uid://cgtyqngp8k0ya" path="res://assets/right door.png" id="6_i54ut"]
+[ext_resource type="Texture2D" uid="uid://dtqhp22tlnhiv" path="res://assets/left_door_cutscene.png" id="7_i8aip"]
 
 [node name="select2" type="Node2D"]
+script = ExtResource("1_hi1vb")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 648.0
-offset_top = 216.0
-offset_right = 832.0
-offset_bottom = 352.0
-text = "titrdrdfgmdfgd"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 position = Vector2(580, 320)
 scale = Vector2(1.00667, 0.672)
 texture = ExtResource("1_yu2ky")
 
-[node name="Button" type="Button" parent="."]
+[node name="fruits" type="Button" parent="."]
 offset_left = 41.0
 offset_top = 24.0
 offset_right = 537.0
@@ -28,7 +25,7 @@ icon = ExtResource("2_xe8nl")
 flat = true
 expand_icon = true
 
-[node name="Button2" type="Button" parent="."]
+[node name="section1" type="Button" parent="."]
 offset_left = 615.0
 offset_top = 56.0
 offset_right = 1111.0
@@ -37,7 +34,17 @@ icon = ExtResource("3_6spwh")
 flat = true
 expand_icon = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="selecting" type="Sprite2D" parent="."]
 position = Vector2(640, 568)
 scale = Vector2(0.481056, 0.42316)
 texture = ExtResource("4_paurn")
+
+[node name="rightdoor" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.96, 0.648)
+texture = ExtResource("6_i54ut")
+
+[node name="leftdoor" type="Sprite2D" parent="."]
+position = Vector2(576.1, 324)
+scale = Vector2(0.959833, 0.648)
+texture = ExtResource("7_i8aip")

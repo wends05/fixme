@@ -14,17 +14,7 @@ position = Vector2(577, 322.5)
 scale = Vector2(0.976667, 0.667)
 texture = ExtResource("4_xp6hb")
 
-[node name="RightDoor" type="Sprite2D" parent="."]
-position = Vector2(1152, 323)
-scale = Vector2(0.946667, 0.648)
-texture = ExtResource("3_gdo2c")
-
-[node name="LeftDoorCutscene" type="Sprite2D" parent="."]
-position = Vector2(-2, 327)
-scale = Vector2(0.96, 0.648)
-texture = ExtResource("3_r63vu")
-
-[node name="Button" type="Button" parent="."]
+[node name="playButton" type="Button" parent="."]
 offset_left = 385.0
 offset_top = 460.0
 offset_right = 619.0
@@ -32,3 +22,13 @@ offset_bottom = 683.0
 icon = ExtResource("3_cjxhx")
 flat = true
 expand_icon = true
+
+[node name="RightDoor" type="Sprite2D" parent="."]
+position = Vector2(1153, 323)
+scale = Vector2(0.946667, 0.648)
+texture = ExtResource("3_gdo2c")
+
+[node name="LeftDoorCutscene" type="Sprite2D" parent="."]
+position = Vector2(0, 327)
+scale = Vector2(0.96, 0.648)
+texture = ExtResource("3_r63vu")
