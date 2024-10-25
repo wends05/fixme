@@ -6,7 +6,7 @@ var slot : ShelfSlot
 @onready var grabbed_texture = $texture
 
 @export var calibrateX: float
-@export var calibrateY: float
+@export var calibrateY: float = -110
 
 var closeHand = preload("res://assets/closedhands.png")
 var openHand = preload("res://assets/openhands.png")

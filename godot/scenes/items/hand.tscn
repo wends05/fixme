@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/hand.gd" id="2_2jkd1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0u15n"]
-radius = 26.6667
+radius = 17.3845
 
 [node name="Hand" type="TextureRect"]
 process_mode = 3

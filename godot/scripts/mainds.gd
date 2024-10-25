@@ -22,7 +22,7 @@ func _ready():
 
 	globals.score = 0
 	globals.win = false
-	globals.time_left = 120
+	globals.time_left = 240
 
 	server.listen(4523)
 	readyItems()
@@ -99,7 +99,7 @@ func readyShelfandGuide():
 
 		if s_Texture:
 			s_Texture.texture = txt
-			s_Texture.visible = false
+			s_Texture.visible = true
 			s_Texture.scale = shelf_item_scale
 
 		slots.append(slot)

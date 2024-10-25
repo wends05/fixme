@@ -100,7 +100,7 @@ func playCountdown():
 	$Countdown.visible = false
 	box.texture = open_box
 	items.visible = true
-	timer.start(120)
+	timer.start(240)
 	await timer.timeout
 	timer_ended.emit()
 
