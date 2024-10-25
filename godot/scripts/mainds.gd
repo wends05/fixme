@@ -99,7 +99,7 @@ func readyShelfandGuide():
 
 		if s_Texture:
 			s_Texture.texture = txt
-			s_Texture.visible = true
+			s_Texture.visible = false
 			s_Texture.scale = shelf_item_scale
 
 		slots.append(slot)
