@@ -185,5 +185,5 @@ func _on_quit_toggled(toggled_on: bool) -> void:
 		togglePauseButtonCollision(true)
 		toggleMainMenuButtonCollisions(false)
 		toggleGuideButtonCollision(true)
-
+		get_tree().change_scene_to_file("res://scenes/select.tscn")
 		main_menu.visible = false
