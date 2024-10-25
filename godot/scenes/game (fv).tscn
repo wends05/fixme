@@ -50,10 +50,10 @@ scale = Vector2(7.1875, 7.1875)
 texture = ExtResource("3_44nv6")
 
 [node name="Items" type="Node2D" parent="."]
+visible = false
 
 [node name="Shelf Items" type="Node2D" parent="Items"]
-position = Vector2(50, 15)
-rotation = -0.0169426
+position = Vector2(16, -24)
 
 [node name="Shelf_0" type="Node2D" parent="Items/Shelf Items"]
 position = Vector2(656, 288)
@@ -83,117 +83,108 @@ position = Vector2(704, 496)
 position = Vector2(800, 496)
 
 [node name="Box_Items" type="Node2D" parent="Items"]
-position = Vector2(-144, -70)
+position = Vector2(-192, -96)
 
 [node name="Box_Item" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(418, 440)
+position = Vector2(440, 440)
 
 [node name="Box_Item2" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(468, 471)
+position = Vector2(472, 472)
 
 [node name="Box_Item3" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(504, 467)
+position = Vector2(488, 456)
 
 [node name="Box_Item4" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(503, 414)
+position = Vector2(504, 440)
 
 [node name="Box_Item5" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(545, 446)
+position = Vector2(528, 440)
 
 [node name="Box_Item6" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(534, 429)
+position = Vector2(520, 432)
 
 [node name="Box_Item7" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(447, 427)
+position = Vector2(480, 432)
 
 [node name="Box_Item8" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(475, 410)
+position = Vector2(472, 416)
 
 [node name="Box_Item9" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(470, 438)
+position = Vector2(464, 440)
 
 [node name="Box_Item10" type="Node2D" parent="Items/Box_Items"]
-position = Vector2(501, 444)
+position = Vector2(496, 432)
 
 [node name="Hand" parent="." instance=ExtResource("1_mdrby")]
 offset_top = 456.0
 offset_bottom = 584.0
 
 [node name="UI" parent="." node_paths=PackedStringArray("timer", "items", "box") instance=ExtResource("2_lulms")]
-clip_contents = true
 timer = NodePath("../Timer")
 items = NodePath("../Items")
 box = NodePath("../Box")
 
 [node name="TextureRect" parent="UI/GuideBG/GuideSheet" index="0"]
-offset_left = -261.313
-offset_top = -348.417
-offset_right = -221.313
-offset_bottom = -308.417
+offset_left = -217.761
+offset_top = -275.83
+offset_right = -177.761
+offset_bottom = -235.83
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" parent="UI/GuideBG/GuideSheet" index="1"]
-offset_left = -87.1041
-offset_top = -348.417
-offset_right = -47.1041
-offset_bottom = -308.417
+offset_left = -43.5517
+offset_top = -275.83
+offset_right = -3.55166
+offset_bottom = -235.83
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect3" parent="UI/GuideBG/GuideSheet" index="2"]
-offset_left = 72.5874
-offset_top = -348.417
-offset_right = 112.587
-offset_bottom = -308.417
+offset_left = 116.14
+offset_top = -275.83
+offset_right = 156.139
+offset_bottom = -235.83
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect4" parent="UI/GuideBG/GuideSheet" index="3"]
-offset_left = -261.313
-offset_top = -87.104
-offset_right = -221.313
-offset_bottom = -47.104
+offset_left = -217.761
+offset_top = -14.517
+offset_right = -177.761
+offset_bottom = 25.483
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect5" parent="UI/GuideBG/GuideSheet" index="4"]
-offset_left = -87.1041
-offset_top = -87.104
-offset_right = -47.1041
-offset_bottom = -47.104
+offset_left = -43.5517
+offset_top = -14.517
+offset_right = -3.55166
+offset_bottom = 25.483
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect6" parent="UI/GuideBG/GuideSheet" index="5"]
-offset_left = 72.5874
-offset_top = -87.104
-offset_right = 112.587
-offset_bottom = -47.104
+offset_left = 116.14
+offset_top = -14.517
+offset_right = 156.139
+offset_bottom = 25.483
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect7" parent="UI/GuideBG/GuideSheet" index="6"]
-offset_left = -261.313
-offset_top = 145.174
-offset_right = -221.313
-offset_bottom = 185.174
+offset_left = -217.761
+offset_top = 217.761
+offset_right = -177.761
+offset_bottom = 257.761
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect8" parent="UI/GuideBG/GuideSheet" index="7"]
-offset_left = -101.622
-offset_top = 145.174
-offset_right = -61.6215
-offset_bottom = 185.174
+offset_left = -58.0696
+offset_top = 217.761
+offset_right = -18.0691
+offset_bottom = 257.761
 scale = Vector2(1.8, 1.8)
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect9" parent="UI/GuideBG/GuideSheet" index="8"]
-offset_left = 72.5874
-offset_top = 159.691
-offset_right = 172.587
-offset_bottom = 259.691
+offset_left = 116.14
+offset_top = 232.278
+offset_right = 156.14
+offset_bottom = 272.278
 scale = Vector2(1.8, 1.8)
 
 [node name="Timer" type="Timer" parent="."]
