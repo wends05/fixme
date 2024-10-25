@@ -128,13 +128,12 @@ func _on_close_guide_toggled(toggled_on: bool) -> void:
 		guide_closed.emit()
 
 func togglePauseButtonCollision(isEnabled: bool):
-	print_debug("isEnabled ", isEnabled)
 	pause_button.collisionBounds.set_collision_layer_value(4, isEnabled)
 	pause_button.collisionBounds.set_collision_mask_value(1, isEnabled)
 
 func toggleMainMenuButtonCollisions(isEnabled: bool):
 	var collisions = [
-		resume_button.collisionBounds,
+		pause_button.collisionBounds,
 		restart_button.collisionBounds,
 		exit_button.collisionBounds
 	]

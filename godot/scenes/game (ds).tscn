@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://itgwd6ienru1"]
+[gd_scene load_steps=18 format=3 uid="uid://itgwd6ienru1"]
 
 [ext_resource type="Script" path="res://scripts/mainds.gd" id="1_xikib"]
 [ext_resource type="Texture2D" uid="uid://x57dj3cub0gq" path="res://assets/section_1_bg.png" id="2_4xv32"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bxonm0her17a2" path="res://assets/items/drinks and snacks/spam.png" id="10_p02em"]
 [ext_resource type="Texture2D" uid="uid://c2y7xru4f1gcg" path="res://assets/items/drinks and snacks/tinapay.png" id="11_hk8es"]
 [ext_resource type="Texture2D" uid="uid://oxvrubgfl83g" path="res://assets/closed_box.png" id="13_6naxb"]
+[ext_resource type="AudioStream" uid="uid://hdov4mcqk732" path="res://assets/Audio/selection2.mp3" id="17_tx50v"]
 
 [node name="Game - Drinks and Snacks" type="Node2D" node_paths=PackedStringArray("hand", "UI")]
 process_mode = 3
@@ -130,3 +131,7 @@ box = NodePath("../Box")
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_tx50v")
+autoplay = true

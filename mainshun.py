@@ -12,7 +12,7 @@ server_ip = "127.0.0.1"
 server_port = 4523
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 # Set the desired width and height
 desired_width = 640

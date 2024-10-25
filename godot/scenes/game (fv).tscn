@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqiv31xlh6p47"]
+[gd_scene load_steps=18 format=3 uid="uid://cqiv31xlh6p47"]
 
 [ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="1_mdrby"]
 [ext_resource type="Script" path="res://scripts/mainds.gd" id="1_xoe2f"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cut5fy7dodrf8" path="res://assets/items/fruits and veggies/pineapple.png" id="10_fll8t"]
 [ext_resource type="Texture2D" uid="uid://cifmxiiev51hp" path="res://assets/items/fruits and veggies/squash (1).png" id="11_jisth"]
 [ext_resource type="Texture2D" uid="uid://oxvrubgfl83g" path="res://assets/closed_box.png" id="13_kfl8u"]
+[ext_resource type="AudioStream" uid="uid://cw84i2php8eq5" path="res://assets/Audio/fv.mp3" id="17_ehecb"]
 
 [node name="Game - Fruits and Vegetables" type="Node2D" node_paths=PackedStringArray("hand", "UI")]
 script = ExtResource("1_xoe2f")
@@ -50,6 +51,7 @@ scale = Vector2(7.1875, 7.1875)
 texture = ExtResource("3_44nv6")
 
 [node name="Items" type="Node2D" parent="."]
+visible = false
 
 [node name="Shelf Items" type="Node2D" parent="Items"]
 position = Vector2(16, -24)
@@ -187,5 +189,9 @@ offset_bottom = 272.278
 scale = Vector2(1.8, 1.8)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_ehecb")
+autoplay = true
 
 [editable path="UI"]
