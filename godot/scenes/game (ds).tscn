@@ -24,7 +24,7 @@ items = Array[CompressedTexture2D]([ExtResource("2_ag04p"), ExtResource("3_0xlwl
 hand = NodePath("Hand")
 UI = NodePath("UI")
 item_scale = Vector2(0.1, 0.1)
-shelf_item_scale = Vector2(0.2, 0.2)
+shelf_item_scale = Vector2(1, 1)
 
 [node name="Section1Bg" type="TextureRect" parent="."]
 offset_left = -64.0
@@ -35,10 +35,10 @@ scale = Vector2(1.0055, 0.782)
 texture = ExtResource("2_4xv32")
 
 [node name="Box" type="TextureRect" parent="."]
-offset_left = 192.0
+offset_left = 152.0
 offset_top = 328.0
-offset_right = 496.0
-offset_bottom = 632.0
+offset_right = 512.0
+offset_bottom = 688.0
 texture = ExtResource("13_6naxb")
 expand_mode = 1
 

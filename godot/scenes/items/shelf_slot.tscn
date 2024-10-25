@@ -10,8 +10,11 @@ height = 48.0
 script = ExtResource("1_w5uls")
 
 [node name="Texture" type="TextureRect" parent="."]
-offset_left = -48.0
-offset_top = -48.0
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 56.0
+offset_bottom = 56.0
+expand_mode = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

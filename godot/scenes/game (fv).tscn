@@ -23,7 +23,7 @@ items = Array[CompressedTexture2D]([ExtResource("2_bau8k"), ExtResource("3_yjv8c
 hand = NodePath("Hand")
 UI = NodePath("UI")
 item_scale = Vector2(1, 1)
-shelf_item_scale = Vector2(1.2, 1.2)
+shelf_item_scale = Vector2(0.8, 0.8)
 
 [node name="FruitsAndVeggiesBg" type="TextureRect" parent="."]
 offset_left = -8.0
@@ -50,40 +50,39 @@ scale = Vector2(7.1875, 7.1875)
 texture = ExtResource("3_44nv6")
 
 [node name="Items" type="Node2D" parent="."]
-visible = false
 
 [node name="Shelf Items" type="Node2D" parent="Items"]
 position = Vector2(16, -24)
 
 [node name="Shelf_0" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(656, 288)
+position = Vector2(672, 304)
 
 [node name="Shelf_1" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(760, 288)
+position = Vector2(776, 304)
 
 [node name="Shelf_2" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(840, 288)
+position = Vector2(856, 304)
 
 [node name="Shelf_3" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(632, 392)
+position = Vector2(648, 408)
 
 [node name="Shelf_4" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(736, 392)
+position = Vector2(752, 408)
 
 [node name="Shelf_5" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(832, 392)
+position = Vector2(848, 408)
 
 [node name="Shelf_6" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(608, 496)
+position = Vector2(624, 512)
 
 [node name="Shelf_7" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(704, 496)
+position = Vector2(720, 512)
 
 [node name="Shelf_8" type="Node2D" parent="Items/Shelf Items"]
-position = Vector2(800, 496)
+position = Vector2(816, 512)
 
 [node name="Box_Items" type="Node2D" parent="Items"]
-position = Vector2(-192, -96)
+position = Vector2(-136, -48)
 
 [node name="Box_Item" type="Node2D" parent="Items/Box_Items"]
 position = Vector2(440, 440)

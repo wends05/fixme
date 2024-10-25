@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7x4no5rga6qf"]
+[gd_scene load_steps=4 format=3 uid="uid://b7x4no5rga6qf"]
 
+[ext_resource type="Texture2D" uid="uid://b73honx6jhva0" path="res://assets/openhands.png" id="1_g54hh"]
 [ext_resource type="Script" path="res://scripts/hand.gd" id="2_2jkd1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0u15n"]
@@ -10,6 +11,9 @@ process_mode = 3
 offset_right = 128.0
 offset_bottom = 128.0
 scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_g54hh")
+expand_mode = 2
+stretch_mode = 4
 script = ExtResource("2_2jkd1")
 
 [node name="texture" type="TextureRect" parent="."]
@@ -19,13 +23,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 1216.0
-offset_bottom = 1216.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 13.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.1, 0.1)
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(64, 64)
