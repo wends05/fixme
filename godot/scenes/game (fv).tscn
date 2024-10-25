@@ -125,12 +125,6 @@ timer = NodePath("../Timer")
 items = NodePath("../Items")
 box = NodePath("../Box")
 
-[node name="GuideBG" parent="UI" index="2"]
-visible = true
-
-[node name="GuideSheet" parent="UI/GuideBG" index="0"]
-visible = false
-
 [node name="TextureRect" parent="UI/GuideBG/GuideSheet" index="0"]
 offset_left = -261.313
 offset_top = -348.417

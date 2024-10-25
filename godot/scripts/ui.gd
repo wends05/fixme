@@ -71,7 +71,7 @@ func closeDoors() -> Tween:
 	return tween
 
 func talk():
-	var text = "Supplies have arrived late, arrange them on the shelf based on the guide before the store opens."
+	var text = "Supplies have arrived late, arrange them on the shelf before the store opens."
 
 	internal_timer.start(4)
 	await internal_timer.timeout

@@ -20,7 +20,7 @@ desired_width = 640
 desired_height = 480
 
 # Initialize variables for smoothing
-smooth_factor = 0.9
+smooth_factor = 0.2
 last_hand_position = None
 
 while cap.isOpened():
