@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bu8w6ri5lucg3"]
+[gd_scene load_steps=33 format=3 uid="uid://bu8w6ri5lucg3"]
 
 [ext_resource type="Script" path="res://scripts/button.gd" id="1_5mikc"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_721w6"]
@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ixx5fmmb1iga" path="res://assets/Buttons/guide_hover.png" id="4_kwrtl"]
 [ext_resource type="Texture2D" uid="uid://dnfjn8bksdyub" path="res://assets/timer_placeholder.png" id="5_f6h0v"]
 [ext_resource type="Texture2D" uid="uid://bo1571bbva7ji" path="res://assets/guide_sheet.png" id="5_f86t2"]
-[ext_resource type="Texture2D" uid="uid://dyxh6c3huuikc" path="res://assets/Buttons/x_button.png" id="5_qd6ql"]
 [ext_resource type="FontFile" uid="uid://dpc8gjfu8jr10" path="res://assets/fonts/VT323/VT323-Regular.ttf" id="6_8rv00"]
-[ext_resource type="Texture2D" uid="uid://dfsn1tpelo46c" path="res://assets/Buttons/x_button_hover.png" id="6_epufq"]
 [ext_resource type="Texture2D" uid="uid://bpce35gmujkdf" path="res://assets/Buttons/Pause.png" id="10_psxdf"]
 [ext_resource type="Texture2D" uid="uid://bc36fhbc8a3eh" path="res://assets/Buttons/Resume.png" id="11_2csjv"]
 [ext_resource type="Texture2D" uid="uid://c2e4u8yklu33c" path="res://assets/Buttons/Pause - Pressed.png" id="11_7pd4u"]
@@ -256,29 +254,6 @@ collision_layer = 8
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_cfjk8")
 
-[node name="Close Guide" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 976.0
-offset_top = 344.0
-offset_right = 1160.0
-offset_bottom = 504.0
-toggle_mode = true
-icon = ExtResource("5_qd6ql")
-flat = true
-expand_icon = true
-script = ExtResource("1_5mikc")
-hoverTexture = ExtResource("6_epufq")
-normalTexture = ExtResource("5_qd6ql")
-
-[node name="Area2D" type="Area2D" parent="Close Guide"]
-position = Vector2(80, 80)
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Close Guide/Area2D"]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_cfjk8")
-
 [node name="Countdown" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0
@@ -428,7 +403,6 @@ scale = Vector2(0.96, 0.648)
 texture = ExtResource("21_28n8e")
 
 [connection signal="toggled" from="Guide Button" to="." method="_on_guide_button_toggled"]
-[connection signal="toggled" from="Close Guide" to="." method="_on_close_guide_toggled"]
 [connection signal="toggled" from="Pause Button" to="." method="_on_pause_button_toggled"]
 [connection signal="toggled" from="Main Menu/Resume" to="." method="_on_resume_toggled"]
 [connection signal="toggled" from="Main Menu/Restart" to="." method="_on_restart_toggled"]
