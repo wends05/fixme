@@ -160,7 +160,6 @@ label_settings = SubResource("LabelSettings_5b2yx")
 autowrap_mode = 2
 
 [node name="GuideBG" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -228,13 +227,11 @@ offset_bottom = 228.726
 scale = Vector2(0.2, 0.2)
 
 [node name="TextureRect9" type="TextureRect" parent="GuideBG/GuideSheet"]
-layout_direction = 1
 offset_left = 101.622
-offset_top = 203.243
-offset_right = 201.622
-offset_bottom = 303.243
+offset_top = 188.726
+offset_right = 141.622
+offset_bottom = 228.726
 scale = Vector2(0.2, 0.2)
-stretch_mode = 3
 
 [node name="Guide Button" type="Button" parent="."]
 layout_mode = 0

@@ -19,7 +19,7 @@ func hover(area: Area2D):
 	if is_instance_of(area.get_parent(), Hand):
 		print("button on hand %s" % name)
 		hand = area.get_parent()
-		icon =  hoverTexture
+		icon = hoverTexture
 
 func unhover(_area: Area2D):
 	if hand:

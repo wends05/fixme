@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import mediapipe as mp
 import socket
 import json
@@ -13,14 +12,14 @@ server_ip = "127.0.0.1"
 server_port = 4523
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 # Set the desired width and height
 desired_width = 640
 desired_height = 480
 
 # Initialize variables for smoothing
-smooth_factor = 0.9
+smooth_factor = 0.1
 last_hand_position = None
 
 while cap.isOpened():
