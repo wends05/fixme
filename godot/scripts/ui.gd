@@ -113,19 +113,15 @@ func _process(_delta: float) -> void:
 func _on_guide_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		guideBG.visible = true
-		$"Close Guide".visible = true
 		$"Guide Button".visible = false
 		pause_button.visible = false
 		guide_opened.emit()
-
-func _on_close_guide_toggled(toggled_on: bool) -> void:
-	if toggled_on:
+	else:
 		guideBG.visible = false
-		$"Close Guide".visible = false
 		$"Guide Button".visible = true
 		pause_button.visible = true
-
 		guide_closed.emit()
+
 
 func togglePauseButtonCollision(isEnabled: bool):
 	print_debug("isEnabled ", isEnabled)
