@@ -41,14 +41,13 @@ while cap.isOpened():
 
     results = hands.process(rgb_frame)
 
-    # Create a copy of the grayscale frame to draw landmarks
+    # Copy frame for the landmarks
     temp_frame = gray_frame.copy()
 
     if results.multi_hand_landmarks:
         # Only consider the first detected hand
         hand_landmarks = results.multi_hand_landmarks[0]
 
-        # Draw hand landmarks in black
         for landmark in hand_landmarks.landmark:
             x = int(landmark.x * desired_width)
             y = int(landmark.y * desired_height)
