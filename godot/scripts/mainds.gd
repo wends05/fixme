@@ -22,7 +22,7 @@ func _ready():
 
 	globals.score = 0
 	globals.win = false
-	globals.time_left = 120
+	globals.time_left = 240
 
 	server.listen(4523)
 	readyItems()

@@ -71,7 +71,7 @@ func closeDoors() -> Tween:
 	return tween
 
 func talk():
-	var text = "Supplies have arrived late, arrange them on the shelf before the store opens."
+	var text = "Supplies have arrived late, arrange them on the shelf based on the guide before the store opens."
 
 	internal_timer.start(4)
 	await internal_timer.timeout
@@ -100,7 +100,7 @@ func playCountdown():
 	$Countdown.visible = false
 	box.texture = open_box
 	items.visible = true
-	timer.start(120)
+	timer.start(240)
 	await timer.timeout
 	timer_ended.emit()
 
