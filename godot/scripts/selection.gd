@@ -10,7 +10,7 @@ func _ready() -> void:
 	open_doors()
 	server.listen(4523)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	server.poll()
 	if server.is_connection_available():
 		var peer: PacketPeerUDP = server.take_connection()
@@ -55,12 +55,12 @@ func closed_doors() -> Tween:
 	tween.tween_property(leftDoor, "position", Vector2(576, leftDoor.position.y), 1.2)
 	return tween
 
-func _on_fruits_toggled(toggled_on: bool) -> void:
+func _on_fruits_toggled(_toggled_on: bool) -> void:
 	await closed_doors().finished
 	get_tree().change_scene_to_file("res://scenes/game (fv).tscn")
 	globals.background = preload("res://assets/Fruits and Veggies BG.png")
 
-func _on_drinks_toggled(toggled_on: bool) -> void:
+func _on_drinks_toggled(_toggled_on: bool) -> void:
 	await closed_doors().finished
 	get_tree().change_scene_to_file("res://scenes/game (ds).tscn")
 	globals.background = preload("res://assets/section_1_bg.png")

@@ -8,7 +8,7 @@ var server := UDPServer.new()
 
 @export var items: Array[CompressedTexture2D]
 @export var hand: Hand
-@export var UI: UI
+@export var ui: UI
 
 @export var item_scale: Vector2
 
@@ -40,7 +40,7 @@ func checkScore():
 
 func end_game():
 	timer_ended = true
-	await UI.closeDoors()
+	await ui.closeDoors()
 	get_tree().change_scene_to_file("res://scenes/endgame.tscn")
 
 
@@ -68,7 +68,10 @@ func _process(_delta):
 		#print(globals.hand_data)
 
 		hand.move(x, y)
-		hand.close() if getting else hand.open()
+		if getting:
+			hand.close()
+		else:
+			hand.open()
 
 func readyItems():
 	items.shuffle()
@@ -76,7 +79,7 @@ func readyItems():
 	var textures: Array = []
 	for txt in items:
 		var item: Item = preload("res://scenes/items/item.tscn").instantiate()
-		item.ui = UI
+		item.ui = ui
 		if item.get_node("Texture"):
 			var item_texture = item.get_node("Texture")
 			item_texture.texture = txt
@@ -104,4 +107,4 @@ func readyShelfandGuide():
 		slots.append(slot)
 	for i in range(9):
 		$"Items/Shelf Items".get_children()[i].add_child(slots[i])
-		UI.GuideSheet.get_children()[i].texture = items[i]
+		ui.GuideSheet.get_children()[i].texture = items[i]
