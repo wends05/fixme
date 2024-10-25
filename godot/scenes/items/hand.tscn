@@ -18,26 +18,26 @@ script = ExtResource("2_2jkd1")
 
 [node name="texture" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 13.0
-offset_bottom = 21.0
+anchors_preset = -1
+anchor_left = 0.457
+anchor_top = 0.457
+anchor_right = 0.457
+anchor_bottom = 0.457
+offset_left = -26.496
+offset_top = -26.496
+offset_right = 18.504
+offset_bottom = 26.504
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 4
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(64, 64)
+position = Vector2(59.3333, 60)
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-5.33333, -5.33333)
+position = Vector2(0, -1.90735e-06)
 shape = SubResource("CircleShape2D_0u15n")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

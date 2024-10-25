@@ -27,6 +27,7 @@ func _ready() -> void:
 	#bg.texture = globals.background
 	if globals.win:
 		setupWin()
+		
 	else:
 		setupLose()
 
@@ -60,11 +61,15 @@ func _process(_delta: float) -> void:
 			hand.open()
 
 func setupWin():
+	var win_audio_player = $winAudio
+	win_audio_player.play()
 	winloseDisplay.texture = preload("res://assets/win.png")
 	stats.text = winMessages.pick_random()
 	stats.text += "\nTime Left: %s" % globals.time_left
 
 func setupLose():
+	var lose_audio_player = $loseAudio
+	lose_audio_player.play()
 	winloseDisplay.texture = preload("res://assets/gameover.png")
 	stats.text = loseMessages.pick_random()
 	stats.text += "\nItems arranged: %s" % globals.score

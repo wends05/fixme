@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="6_c1k3l"]
 [ext_resource type="Texture2D" uid="uid://cgtyqngp8k0ya" path="res://assets/right door.png" id="6_i54ut"]
 [ext_resource type="Texture2D" uid="uid://dtqhp22tlnhiv" path="res://assets/left_door_cutscene.png" id="7_i8aip"]
-[ext_resource type="AudioStream" uid="uid://u0p20w5toe6j" path="res://assets/Audio/main song.mp3" id="10_8tny0"]
+[ext_resource type="AudioStream" uid="uid://dloivbs564dap" path="res://assets/Audio/mainfinal.mp3" id="10_bqud7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k4vt"]
 size = Vector2(472, 328)
@@ -88,7 +88,7 @@ scale = Vector2(0.96, 0.648)
 texture = ExtResource("7_i8aip")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_8tny0")
+stream = ExtResource("10_bqud7")
 autoplay = true
 
 [connection signal="toggled" from="fruits" to="." method="_on_fruits_toggled"]

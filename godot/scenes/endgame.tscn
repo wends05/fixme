@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bb621n8fsnxxo"]
+[gd_scene load_steps=14 format=3 uid="uid://bb621n8fsnxxo"]
 
 [ext_resource type="Script" path="res://scripts/win.gd" id="1_fa7bg"]
 [ext_resource type="Texture2D" uid="uid://doqxxqot8fsiv" path="res://assets/win.png" id="2_15x4n"]
+[ext_resource type="AudioStream" uid="uid://gcpm3rf1xfw2" path="res://assets/Audio/Wiin.mp3" id="2_60yoo"]
 [ext_resource type="Texture2D" uid="uid://bpexhs2hsvkhv" path="res://assets/Buttons/exit.png" id="3_fwcpa"]
 [ext_resource type="FontFile" uid="uid://dpc8gjfu8jr10" path="res://assets/fonts/VT323/VT323-Regular.ttf" id="4_ctjb8"]
 [ext_resource type="Script" path="res://scripts/button.gd" id="4_x2ag1"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="6_xbduu"]
 [ext_resource type="Texture2D" uid="uid://cgtyqngp8k0ya" path="res://assets/right door.png" id="8_7awrm"]
 [ext_resource type="Texture2D" uid="uid://dtqhp22tlnhiv" path="res://assets/left_door_cutscene.png" id="9_j25ag"]
+[ext_resource type="AudioStream" uid="uid://bt45jgw6gg1uw" path="res://assets/Audio/meowmeow.mp3" id="11_vtyjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4an2"]
 size = Vector2(186, 29)
@@ -20,6 +22,11 @@ font_size = 25
 [node name="endgame" type="Node2D" node_paths=PackedStringArray("hand")]
 script = ExtResource("1_fa7bg")
 hand = NodePath("Hand")
+
+[node name="winAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.96, 0.648)
+stream = ExtResource("2_60yoo")
 
 [node name="background" type="TextureRect" parent="."]
 offset_left = -64.0
@@ -107,5 +114,8 @@ texture = ExtResource("8_7awrm")
 position = Vector2(576, 324)
 scale = Vector2(0.96, 0.648)
 texture = ExtResource("9_j25ag")
+
+[node name="loseAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_vtyjh")
 
 [connection signal="toggled" from="Control/Button" to="." method="_on_button_toggled"]
