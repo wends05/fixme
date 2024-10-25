@@ -1,10 +1,90 @@
-[gd_scene format=3 uid="uid://82r1hunwkpgv"]
+[gd_scene load_steps=12 format=3 uid="uid://b14l7y65c8xw"]
 
-[node name="select2" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/selection.gd" id="1_hi1vb"]
+[ext_resource type="Texture2D" uid="uid://bgqpu88rxgy7d" path="res://assets/selection bg.png" id="1_yu2ky"]
+[ext_resource type="Texture2D" uid="uid://btvpskgo8ov34" path="res://assets/Fruits and Veggies BG selection.png" id="2_xe8nl"]
+[ext_resource type="Texture2D" uid="uid://dlf836uvapo8t" path="res://assets/section 1 bg selection.png" id="3_6spwh"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="4_oxxdg"]
+[ext_resource type="Texture2D" uid="uid://c6rwf3h2fmw3" path="res://assets/selecting....png" id="4_paurn"]
+[ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="6_c1k3l"]
+[ext_resource type="Texture2D" uid="uid://cgtyqngp8k0ya" path="res://assets/right door.png" id="6_i54ut"]
+[ext_resource type="Texture2D" uid="uid://dtqhp22tlnhiv" path="res://assets/left_door_cutscene.png" id="7_i8aip"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 648.0
-offset_top = 216.0
-offset_right = 832.0
-offset_bottom = 352.0
-text = "titrdrdfgmdfgd"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k4vt"]
+size = Vector2(472, 328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a1ac"]
+size = Vector2(465.5, 329)
+
+[node name="select2" type="Node2D" node_paths=PackedStringArray("hand")]
+script = ExtResource("1_hi1vb")
+hand = NodePath("Hand")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(580, 320)
+scale = Vector2(1.00667, 0.672)
+texture = ExtResource("1_yu2ky")
+
+[node name="fruits" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 24.0
+offset_right = 537.0
+offset_bottom = 512.0
+toggle_mode = true
+icon = ExtResource("2_xe8nl")
+flat = true
+expand_icon = true
+script = ExtResource("4_oxxdg")
+hoverTexture = ExtResource("2_xe8nl")
+normalTexture = ExtResource("2_xe8nl")
+
+[node name="Area2D" type="Area2D" parent="fruits"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fruits/Area2D"]
+position = Vector2(247, 244)
+shape = SubResource("RectangleShape2D_3k4vt")
+
+[node name="drinks" type="Button" parent="."]
+offset_left = 615.0
+offset_top = 56.0
+offset_right = 1111.0
+offset_bottom = 480.0
+toggle_mode = true
+icon = ExtResource("3_6spwh")
+flat = true
+expand_icon = true
+script = ExtResource("4_oxxdg")
+hoverTexture = ExtResource("3_6spwh")
+normalTexture = ExtResource("3_6spwh")
+
+[node name="Area2D" type="Area2D" parent="drinks"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="drinks/Area2D"]
+position = Vector2(248.25, 211.5)
+shape = SubResource("RectangleShape2D_2a1ac")
+
+[node name="selecting" type="Sprite2D" parent="."]
+position = Vector2(640, 568)
+scale = Vector2(0.481056, 0.42316)
+texture = ExtResource("4_paurn")
+
+[node name="Hand" parent="." instance=ExtResource("6_c1k3l")]
+offset_top = 456.0
+offset_bottom = 584.0
+
+[node name="RightDoor" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.96, 0.648)
+texture = ExtResource("6_i54ut")
+
+[node name="LeftDoor" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.96, 0.648)
+texture = ExtResource("7_i8aip")
+
+[connection signal="toggled" from="fruits" to="." method="_on_fruits_toggled"]
+[connection signal="toggled" from="drinks" to="." method="_on_drinks_toggled"]

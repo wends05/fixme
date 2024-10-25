@@ -5,7 +5,7 @@ var hand: Hand = null
 @onready var collisionBounds : Area2D = $Area2D
 @export var hoverTexture: CompressedTexture2D
 @export var normalTexture: CompressedTexture2D
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if globals.hand_data.get("getting") and hand:
 		button_pressed = true
 	else:
@@ -21,7 +21,7 @@ func hover(area: Area2D):
 		hand = area.get_parent()
 		icon =  hoverTexture
 
-func unhover(area: Area2D):
+func unhover(_area: Area2D):
 	if hand:
 		hand = null
 		button_pressed = false

@@ -11,7 +11,10 @@ var hand_data = {
 
 var score: int = 0
 var time_left: int = 0
-var win = false
+var win = true
+
+var background = preload("res://assets/section_1_bg.png")
+
 signal scoreIncreased
 
 func increaseScore():

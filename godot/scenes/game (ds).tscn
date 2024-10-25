@@ -1,20 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://itgwd6ienru1"]
+[gd_scene load_steps=17 format=3 uid="uid://itgwd6ienru1"]
 
 [ext_resource type="Script" path="res://scripts/mainds.gd" id="1_xikib"]
 [ext_resource type="Texture2D" uid="uid://x57dj3cub0gq" path="res://assets/section_1_bg.png" id="2_4xv32"]
-[ext_resource type="Texture2D" uid="uid://yrfs7657hcbx" path="res://assets/open_box.png" id="2_drhxa"]
+[ext_resource type="Texture2D" uid="uid://bud2jeub6eq4x" path="res://assets/items/drinks and snacks/biscoff.png" id="2_ag04p"]
+[ext_resource type="Texture2D" uid="uid://cw6ykv4sascu1" path="res://assets/items/drinks and snacks/c2.png" id="3_0xlwl"]
 [ext_resource type="Texture2D" uid="uid://dl50wecbqjrtk" path="res://assets/shelf.png" id="3_boitr"]
 [ext_resource type="PackedScene" uid="uid://b7x4no5rga6qf" path="res://scenes/items/hand.tscn" id="4_6r75w"]
+[ext_resource type="Texture2D" uid="uid://mdsntc4q5hii" path="res://assets/items/drinks and snacks/cheetos.png" id="4_d0lny"]
+[ext_resource type="Texture2D" uid="uid://clwd45iijpjvv" path="res://assets/items/drinks and snacks/doritos.png" id="5_te4j3"]
+[ext_resource type="Texture2D" uid="uid://bwhvxa1o2nj06" path="res://assets/items/drinks and snacks/idkwhatthisis.png" id="6_hdnw1"]
 [ext_resource type="PackedScene" uid="uid://bu8w6ri5lucg3" path="res://scenes/items/ui.tscn" id="6_muv1p"]
+[ext_resource type="Texture2D" uid="uid://mxmohag1pb2f" path="res://assets/items/drinks and snacks/mayo.png" id="7_pbpdq"]
+[ext_resource type="Texture2D" uid="uid://by3royp2rjlws" path="res://assets/items/drinks and snacks/milk.png" id="8_uukt1"]
+[ext_resource type="Texture2D" uid="uid://b0nu5osrptkhs" path="res://assets/items/drinks and snacks/oreo.png" id="9_hy6j3"]
+[ext_resource type="Texture2D" uid="uid://bxonm0her17a2" path="res://assets/items/drinks and snacks/spam.png" id="10_p02em"]
+[ext_resource type="Texture2D" uid="uid://c2y7xru4f1gcg" path="res://assets/items/drinks and snacks/tinapay.png" id="11_hk8es"]
+[ext_resource type="Texture2D" uid="uid://oxvrubgfl83g" path="res://assets/closed_box.png" id="13_6naxb"]
 
 [node name="Game - Drinks and Snacks" type="Node2D" node_paths=PackedStringArray("hand", "UI")]
 process_mode = 3
 script = ExtResource("1_xikib")
+items = Array[CompressedTexture2D]([ExtResource("2_ag04p"), ExtResource("3_0xlwl"), ExtResource("4_d0lny"), ExtResource("5_te4j3"), ExtResource("6_hdnw1"), ExtResource("7_pbpdq"), ExtResource("8_uukt1"), ExtResource("9_hy6j3"), ExtResource("10_p02em"), ExtResource("11_hk8es")])
 hand = NodePath("Hand")
 UI = NodePath("UI")
+item_scale = Vector2(0.1, 0.1)
+shelf_item_scale = Vector2(0.2, 0.2)
 
-[node name="Section1Bg" type="Sprite2D" parent="."]
-position = Vector2(568, 344)
+[node name="Section1Bg" type="TextureRect" parent="."]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 1209.0
+offset_bottom = 936.0
 scale = Vector2(1.0055, 0.782)
 texture = ExtResource("2_4xv32")
 
@@ -23,7 +39,7 @@ offset_left = 192.0
 offset_top = 328.0
 offset_right = 496.0
 offset_bottom = 632.0
-texture = ExtResource("2_drhxa")
+texture = ExtResource("13_6naxb")
 expand_mode = 1
 
 [node name="Shelf" type="TextureRect" parent="."]
@@ -36,6 +52,7 @@ expand_mode = 1
 
 [node name="Items" type="Node2D" parent="."]
 process_mode = 1
+visible = false
 
 [node name="Shelf Items" type="Node2D" parent="Items"]
 position = Vector2(0, -24)
@@ -100,15 +117,15 @@ position = Vector2(464, 440)
 [node name="Box_Item10" type="Node2D" parent="Items/Box_Items"]
 position = Vector2(496, 432)
 
+[node name="Hand" parent="." instance=ExtResource("4_6r75w")]
+offset_top = 456.0
+offset_bottom = 584.0
+calibrateX = -100.0
+
 [node name="UI" parent="." node_paths=PackedStringArray("timer", "items", "box") instance=ExtResource("6_muv1p")]
 timer = NodePath("../Timer")
 items = NodePath("../Items")
 box = NodePath("../Box")
-
-[node name="Hand" parent="." instance=ExtResource("4_6r75w")]
-offset_top = 8.0
-offset_bottom = 136.0
-calibrateX = -100.0
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
